@@ -13,19 +13,19 @@ pipeline {
         // -------------------------
         // Stage 1: Checkout Code
         // -------------------------
-        stage('Checkout') {
-            steps {
-                // Pull the latest version of the repository from GitHub (main branch)
-                checkout([
-                    $class: 'GitSCM', 
-                    branches: [[name: '*/main']],
-                    userRemoteConfigs: [[
+stage('Checkout') {
+    steps {
+        // Pull the latest version of the repository from GitHub (main branch)
+        checkout([
+            $class: 'GitSCM',
+            branches: [[name: '*/main']],
+            userRemoteConfigs: [[
                 url: "${GITHUB_URL}",
                 credentialsId: 'roseaw-dockerhub'
-                ]]
-            }
-        }
-
+            ]]
+        ])
+    }
+}
         // ---------------------------------------
         // Stage 2: Deploy MongoDB and Mongo Express
         // ---------------------------------------

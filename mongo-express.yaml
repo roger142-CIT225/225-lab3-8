@@ -70,7 +70,7 @@ spec:
       # The secret 'docker-creds' must be created with: 
       # kubectl create secret docker-registry docker-creds --docker-username=<user> --docker-password=<pass> --docker-email=<email>
       imagePullSecrets:
-      - name: roseaw-dockerhub
+      - name: docker-creds
 
 ---
 # ====================================================
